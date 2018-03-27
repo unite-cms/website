@@ -107,14 +107,14 @@ let units : FloatingUnit[] = [];
   ));
 }*/
 
-let centerPoint1 = <HTMLElement>document.body.querySelector('#units-center-point1');
+/*let centerPoint1 = <HTMLElement>document.body.querySelector('#units-center-point1');
 let centerPoint1Top = centerPoint1.offsetTop;
-let centerPoint1Height = centerPoint1.offsetTop + window.innerHeight;
+let centerPoint1Height = centerPoint1.offsetTop + window.innerHeight;*/
 
 window.addEventListener(
   "scroll",
   throttle(100, () => {
-    units.forEach((unit : FloatingUnit) => {
+    /*units.forEach((unit : FloatingUnit) => {
 
       if(window.scrollY > centerPoint1Top - 300 && window.scrollY < centerPoint1Height - 500) {
 
@@ -135,7 +135,7 @@ window.addEventListener(
       }
 
       unit.update();
-    });
+    });*/
 
     if(window.scrollY > 20) {
       document.body.classList.add('scroll');
@@ -146,8 +146,12 @@ window.addEventListener(
   {passive: true}
 );
 
-units.forEach((unit : FloatingUnit, index) => {
+if(window.scrollY > 20) {
+  document.body.classList.add('scroll');
+}
+
+/*units.forEach((unit : FloatingUnit, index) => {
   delay(500 * index, () => { unit.update(); });
-});
+});*/
 
 feather.replace();

@@ -1,27 +1,83 @@
-
 .section-with-frame {
-  height: 100vh;
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-  padding-left: 50%;
+  margin-bottom: 50px;
 
-  .computer-frame {
-    width: 50%;
-    left: -10%;
-    position: absolute;
-    height: 100%;
-    background: url("../images/computer.svg") no-repeat right center;
-    background-size: contain;
+  article.main {
+    padding: 20px;
   }
 
-  &.right {
-    padding-left: 0;
-    padding-right: 50%;
+  .computer-frame {
+    width: 80%;
+    left: 10%;
+    position: relative;
+    height: 200px;
+    background: url("../images/computer.svg") no-repeat center center;
+    background-size: contain;
+  }
+}
+
+@media (min-width: $width-small) {
+  .section-with-frame {
+    .computer-frame {
+      height: 300px;
+    }
+  }
+}
+
+@media (min-width: $width-medium) {
+  .section-with-frame {
+    padding-left: 45%;
+    margin: 100px 0;
+
+    article.main {
+      padding: 50px 50px 50px 0;
+      max-width: 650px;
+      box-sizing: content-box;
+      margin-right: auto;
+    }
 
     .computer-frame {
-      left: 60%;
+      top: 0;
+      width: 50%;
+      left: -10%;
+      position: absolute;
+      height: 100%;
+      background-position: right center;
+    }
+
+    &.right {
+      padding-left: 0;
+      padding-right: 45%;
+
+      article.main {
+        padding: 50px 0 50px 50px;
+        margin-right: 0;
+        margin-left: auto;
+      }
+
+      .computer-frame {
+        left: 60%;
+        background-position: left center;
+      }
+    }
+  }
+}
+
+@media (min-width: $width-large) {
+  .section-with-frame {
+    margin: 150px 0;
+  }
+}
+
+@media (min-width: $width-very-large) {
+  .section-with-frame {
+    margin: 200px 0;
+
+    article.main {
+      max-width: 800px;
     }
   }
 }

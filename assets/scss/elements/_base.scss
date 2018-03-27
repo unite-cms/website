@@ -8,3 +8,112 @@ body {
     color: map-get($colors, white);
   }
 }
+
+p {
+  font-size: 14px;
+  line-height: 150%;
+  opacity: 0.75;
+  margin: 0 0 10px;
+
+  &.intend-left {
+    margin-left: 30px;
+  }
+}
+
+h1, .h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+h2, .h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+h3, .h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+h4, .h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+h5, .h5 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5 .h5 {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  svg.feather {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -4px;
+  }
+}
+
+@media (min-width: 375px) {
+
+  p {
+    font-size: 16px;
+  }
+
+  h1, .h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  h2, .h2 {
+    font-size: 24px;
+  }
+
+  h3, .h3 {
+    font-size: 20px;
+  }
+
+  h4, .h4 {
+    font-size: 18px;
+  }
+}
+@media (min-width: $width-small) {
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  h1, .h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+  }
+
+  h2, .h2 {
+    font-size: 32px;
+  }
+
+  h3, .h3 {
+    font-size: 24px;
+  }
+
+  h4, .h4 {
+    font-size: 20px;
+  }
+
+  h5, .h5 {
+    font-size: 16px;
+  }
+}

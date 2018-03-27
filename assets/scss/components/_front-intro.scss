@@ -19,7 +19,6 @@ section.front-intro {
       margin: 0;
       text-align: center;
       font-weight: normal;
-      font-size: 24px;
 
       strong {
         font-weight: bold;
@@ -31,16 +30,13 @@ section.front-intro {
     }
 
     p.content {
-      font-size: 14px;
-      line-height: 150%;
       margin: 20px auto 0;
-
-      opacity: 0.75;
       max-width: 600px;
     }
 
     p.actions {
       margin-top: 20px;
+      opacity: 1;
 
       .button {
         margin: 5px;
@@ -83,13 +79,8 @@ section.front-intro {
       max-width: 80%;
 
       h1 {
-        font-size: 32px;
         padding-top: 120px;
         background-size: 90px 90px;
-      }
-
-      p.content {
-        font-size: 16px;
       }
 
       p.actions,
@@ -105,7 +96,6 @@ section.front-intro {
 
     article.main {
       h1 {
-        font-size: 50px;
         background-size: 128px 128px;
         padding-top: 175px;
       }
