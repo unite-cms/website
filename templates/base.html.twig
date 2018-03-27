@@ -2,11 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('build/css/critical.css') }}">
     </head>
     <body>
+        <header class="site-header">
+            <h2 class="site-name"><strong>unite</strong> cms</h2>
+            <nav class="site-menu">
+                <input id="site-menu-toggle" type="checkbox">
+                <label for="site-menu-toggle">
+                    <span class="menu-icon"></span>
+                </label>
+                <ol>
+                    <li><a class="active" href="#"><i data-feather="arrow-right"></i> Unite</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Use cases</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a class="docs" href="#">Docs</a></li>
+                </ol>
+            </nav>
+        </header>
+
         {% block body %}{% endblock %}
+        <footer class="site-footer">
+
+        </footer>
         <script src="{{ asset('build/js/app.js') }}"></script>
         <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
     </body>

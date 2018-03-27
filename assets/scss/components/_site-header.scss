@@ -1,0 +1,319 @@
+
+header.site-header {
+  position: fixed;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  display: flex;
+  z-index: 100;
+  padding: 15px 0;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+  background: rgba(255, 255, 255, 0);
+
+  .site-name {
+    flex: 1;
+    font-weight: normal;
+    margin: 0 0 0 15px;
+    padding: 2px 0 2px 30px;
+    font-size: 16px;
+    background: url('../../images/logo.svg') no-repeat left center;
+    background-size: contain;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .site-menu {
+    position: relative;
+    left: auto;
+    margin-right: 15px;
+
+    ol {
+      position: fixed;
+      top: -100vh;
+      right: 0;
+      height: 100vh;
+      left: 0;
+      z-index: 100;
+      background: $color-backdrop;
+      opacity: 0;
+      color: map-get($colors, white);
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+
+      li {
+        &:first-child {
+          margin-top: 40px;
+        }
+
+        a {
+          color: map-get($colors, white);
+          display: block;
+          line-height: 30px;
+          text-decoration: none;
+          font-size: 24px;
+          padding: 10px 60px;
+          opacity: 0.75;
+
+          svg.feather {
+            vertical-align: middle;
+            margin: -5px 0 0 -32px;
+          }
+
+          &.active {
+            opacity: 1;
+            font-weight: bold;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    input {
+      opacity: 0;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      + label {
+        padding: 0;
+        cursor: pointer;
+        z-index: 120;
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        white-space: nowrap;
+        display: block;
+
+        .menu-icon {
+          transition-duration: 0.22s;
+          transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          display: block;
+          top: 50%;
+          margin-top: 20px / -2;
+          margin-left: 4px;
+
+          &,
+          &::before,
+          &::after {
+            width: 16px;
+            height: 2px;
+            background-color: map-get($colors, white);
+            border-radius: 2px;
+            position: absolute;
+            transition-property: transform;
+            transition-duration: 0.15s;
+            transition-timing-function: ease;
+          }
+
+          &::before,
+          &::after {
+            content: "";
+            width: 20px;
+            display: block;
+            left: -4px;
+          }
+
+          &::before {
+            top: (3px + 2px) * -1;
+          }
+
+          &::after {
+            bottom: (3px + 2px) * -1;
+          }
+
+          &::before {
+            transition: top 0.1s 0.25s ease-in,
+            opacity 0.1s ease-in;
+          }
+
+          &::after {
+            transition: bottom 0.1s 0.25s ease-in,
+            transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          }
+        }
+      }
+
+      &:focus {
+        + label {
+          outline: 1px dotted rgba(255,255,255,0.5);
+        }
+
+        &:checked {
+          + label {
+            outline: none;
+          }
+        }
+      }
+
+      &:checked {
+        + label {
+          color: white;
+          opacity: 1;
+
+          .menu-icon {
+            transform: rotate(225deg);
+            transition-delay: 0.12s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            &,
+            &::before,
+            &::after {
+              width: 20px;
+              background-color: white;
+              left: 0;
+            }
+
+            &::before {
+              top: 0;
+              opacity: 0;
+              transition: top 0.1s ease-out,
+              opacity 0.1s 0.12s ease-out;
+            }
+
+            &::after {
+              bottom: 0;
+              transform: rotate(-90deg);
+              transition: bottom 0.1s ease-out,
+              transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+          }
+
+          + ol {
+            top: 0;
+            opacity: 1;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.scroll {
+  header.site-header {
+    padding: 10px 0;
+    background: rgba(255,255,255, 1);
+    color: map-get($colors, darkblue);
+    a { color: map-get($colors, darkblue); }
+
+    .site-menu {
+      .menu-icon {
+        &,
+        &::before,
+        &::after {
+          background-color: map-get($colors, darkblue);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $width-small) {
+  header.site-header {
+
+    padding: 20px 0;
+
+    .site-name {
+      font-size: 20px;
+      background-size: 24px 24px;
+      margin-left: 20px;
+      padding-left: 35px;
+
+      strong {
+        font-weight: bold;
+      }
+    }
+
+    .site-menu {
+      margin-right: 20px;
+
+      > input, > input + label {
+        display: none;
+      }
+
+      ol {
+        opacity: 1;
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        display: flex;
+        background: none;
+
+        li {
+          &, &:first-child {
+            margin: 0;
+            padding: 0;
+          }
+
+          a {
+            font-size: 16px;
+            padding: 0 10px;
+
+            svg.feather {
+              width: 16px;
+              height: 16px;
+              margin: -4px -2px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body.scroll {
+    header.site-header {
+      .site-menu {
+        ol {
+          li {
+            a {
+              color: map-get($colors, darkblue);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $width-large) {
+  header.site-header {
+
+    padding: 30px 0;
+
+    .site-name {
+      margin-left: 30px;
+    }
+
+    .site-menu {
+      margin-right: 30px;
+
+      ol {
+        li {
+          a {
+            padding: 0 20px;
+          }
+        }
+      }
+    }
+  }
+}

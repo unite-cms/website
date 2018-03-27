@@ -3,6 +3,7 @@
         "@symfony/webpack-encore": "^0.19.0",
         "dom4": "^2.0.1",
         "node-sass": "^4.7.2",
+        "reset-css": "^3.0.0",
         "sass-loader": "^6.0.7",
         "ts-loader": "3.5.0",
         "typescript": "^2.7.2"
@@ -19,6 +20,7 @@
         "@types/dom4": "^2.0.0",
         "@types/lodash": "^4.14.106",
         "eslint": "^4.19.1",
+        "feather-icons": "^4.7.0",
         "lodash": "^4.17.5"
     }
 }

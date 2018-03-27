@@ -1191,6 +1191,10 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 clean-webpack-plugin@^0.1.16:
   version "0.1.19"
   resolved "https://registry.yarnpkg.com/clean-webpack-plugin/-/clean-webpack-plugin-0.1.19.tgz#ceda8bb96b00fe168e9b080272960d20fdcadd6d"
@@ -2225,6 +2229,12 @@ faye-websocket@~0.11.0:
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
   dependencies:
     websocket-driver ">=0.5.1"
+
+feather-icons@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.7.0.tgz#78b4c78022f091b94e57b1b6fc81721a76387cfd"
+  dependencies:
+    classnames "^2.2.5"
 
 figures@^2.0.0:
   version "2.0.0"
@@ -4839,6 +4849,10 @@ require-uncached@^1.0.3:
 requires-port@1.0.x, requires-port@1.x.x, requires-port@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+reset-css@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/reset-css/-/reset-css-3.0.0.tgz#9b421d34fefc6e5d5b915ee7bfd72b1bc19cfbb0"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

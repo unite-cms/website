@@ -1,0 +1,36 @@
+
+.button {
+  height: 46px;
+  padding: 10px 30px;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 26px;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.40);
+  }
+
+  > svg.feather {
+    margin-left: -20px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  @each $name, $color in $colors {
+    &.#{$name} {
+      background: $color;
+
+      @if index((white, yellow), $name) {
+        color: map-get($colors, darkblue);
+      }
+    }
+  }
+}

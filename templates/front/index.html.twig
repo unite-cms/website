@@ -1,10 +1,56 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello {{ controller_name }}!{% endblock %}
+{% block title %}unite cms - open source decoupled content management system{% endblock %}
 
 {% block body %}
+    <section class="front-intro">
 
-    <h1>Hello</h1>
-    <div style="background: yellow; width: 50vw; height: 5000px;"></div>
+        <article class="main">
+            <h1><strong>unite</strong> your content</h1>
+            <p class="content">unite cms is an Open Source, decoupled content management system that is designed to manage content of any application and not only websites.</p>
+            <p class="actions">
+                <a href="#" class="button green"><i data-feather="command"></i> Getting started</a>
+                <a href="#" class="button white"><i data-feather="arrow-down"></i> Explore features</a>
+            </p>
+            <ul class="devices">
+                {% for d in [
+                    { icon: 'monitor', text: 'Web' },
+                    { icon: 'tv', text: 'TV' },
+                    { icon: 'cloud', text: 'Cloud' },
+                    { icon: 'watch', text: 'Wearable' },
+                    { icon: 'smartphone', text: 'App' },
+                    { icon: 'cpu', text: 'IoT' },
+                    { icon: 'zap', text: 'Anything' }
+                ] %}
+                    <li>
+                        <i data-feather="{{ d.icon }}"></i>
+                        {{ d.text }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </article>
+
+    </section>
+
+    <section class="section-with-frame right">
+
+        <div class="computer-frame" id="units-center-point1">
+
+        </div>
+
+    </section>
+    <section class="section-with-frame left">
+
+        <div class="computer-frame">
+
+        </div>
+
+    </section>
+    <section class="section-with-frame right">
+
+        <div class="computer-frame">
+
+        </div>
+
+    </section>
 
 {% endblock %}

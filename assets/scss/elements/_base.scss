@@ -1,0 +1,10 @@
+
+body {
+  background: map-get($colors, darkblue);
+  font-family: $font-family;
+  color: map-get($colors, white);
+
+  a {
+    color: map-get($colors, white);
+  }
+}
