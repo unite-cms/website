@@ -1,0 +1,44 @@
+
+
+
+.floating-unit {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 100%;
+  opacity: 0;
+  background: none;
+  transition: top 0.5s ease-out, left 0.5s ease-out;
+  display: none;
+
+  @each $name, $color in $colors {
+    &.#{$name} {
+      border: 7px solid $color;
+      box-shadow: 0 0 15px 0 $color;
+    }
+  }
+}
+
+// For small devices, only show 4 units.
+.floating-unit {
+  @for $i from 1 through 4 {
+    &.u#{$i} {
+      display: block;
+    }
+  }
+}
+
+// For large devices, show all 16 units.
+@media (min-width: $width-medium) {
+  .floating-unit {
+    @for $i from 5 through 16 {
+      &.u#{$i} {
+        display: block;
+      }
+    }
+  }
+}

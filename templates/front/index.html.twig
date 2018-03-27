@@ -31,7 +31,7 @@
 
     </section>
 
-    <section class="section-with-frame right">
+    <section class="section-with-frame right group-units-scene">
 
         <article class="main">
             <h2 class="h1">rethink content management</h2>
@@ -80,4 +80,9 @@
 
     </section>
 
+    {% for k, j in 1..4 %}
+        {% for i, color in ['red', 'green', 'purple', 'yellow'] %}
+            <div draggable="true" class="floating-unit {{ color }} u{{ (k|number_format * 4) + (i|number_format + 1) }}"></div>
+        {% endfor %}
+    {% endfor %}
 {% endblock %}
