@@ -13,33 +13,37 @@ section.front-intro {
   article.main {
     flex: 0 1 auto;
     width: 900px;
-    max-width: 94%;
+    max-width: 90%;
 
     h1 {
       margin: 0;
       text-align: center;
       font-weight: normal;
-      font-size: 50px;
+      font-size: 24px;
 
       strong {
         font-weight: bold;
       }
 
       background: url('../images/logo.svg') no-repeat center top;
-      background-size: 128px 128px;
-      padding-top: 175px;
+      background-size: 64px 64px;
+      padding-top: 80px;
     }
 
     p.content {
-      font-size: 16px;
+      font-size: 14px;
+      line-height: 150%;
+      margin: 20px auto 0;
+
       opacity: 0.75;
       max-width: 600px;
-      margin: 30px auto 0;
     }
 
     p.actions {
+      margin-top: 20px;
+
       .button {
-        margin: 20px 5px;
+        margin: 5px;
       }
     }
 
@@ -48,10 +52,11 @@ section.front-intro {
       list-style: none;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      margin: 30px auto;
+      flex-wrap: nowrap;
+      margin: 20px auto;
       padding: 0;
       max-width: 720px;
+      overflow: hidden;
 
       li {
         display: block;
@@ -66,6 +71,48 @@ section.front-intro {
           display: block;
           margin: 0 auto 10px;
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) {
+  section.front-intro {
+
+    article.main {
+      max-width: 80%;
+
+      h1 {
+        font-size: 32px;
+        padding-top: 120px;
+        background-size: 90px 90px;
+      }
+
+      p.content {
+        font-size: 16px;
+      }
+
+      p.actions,
+      ul.devices, ol.devices {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: $width-small) {
+  section.front-intro {
+
+    article.main {
+      h1 {
+        font-size: 50px;
+        background-size: 128px 128px;
+        padding-top: 175px;
+      }
+
+      p.actions,
+      ul.devices, ol.devices {
+        margin-top: 50px;
       }
     }
   }

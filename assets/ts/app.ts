@@ -98,14 +98,14 @@ class FloatingUnit {
 
 let units : FloatingUnit[] = [];
 
-for(let i = 0; i < 20; i++) {
+/*for(let i = 0; i < 20; i++) {
   units.push(new FloatingUnit(
     document.createElement('div'),
     i,
     document.body.querySelector('.front-intro'),
     document.body.querySelector('.front-intro > .main')
   ));
-}
+}*/
 
 let centerPoint1 = <HTMLElement>document.body.querySelector('#units-center-point1');
 let centerPoint1Top = centerPoint1.offsetTop;

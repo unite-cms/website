@@ -1,13 +1,12 @@
 
 .button {
-  height: 46px;
-  padding: 10px 30px;
+  padding: 5px 10px;
   min-width: 200px;
   text-align: center;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
   border-radius: 2px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   display: inline-block;
   box-sizing: border-box;
@@ -19,7 +18,7 @@
   }
 
   > svg.feather {
-    margin-left: -20px;
+    margin-left: -10px;
     margin-right: 10px;
     vertical-align: middle;
   }
@@ -32,5 +31,12 @@
         color: map-get($colors, darkblue);
       }
     }
+  }
+}
+
+@media (min-width: $width-small) {
+  .button {
+    padding: 10px 30px;
+    font-size: 16px;
   }
 }
