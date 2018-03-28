@@ -13,7 +13,8 @@ let scroll = new ScrollManager();
 let units : FloatingUnit[] = [];
 let scenes : FloatingUnitScene[] = [
   new FrontIntroScene(document.body.querySelector('.front-intro'), units),
-  new GroupUnitsScene(document.body.querySelector('.group-units-scene'), units)
+  new GroupUnitsScene(document.body.querySelector('.group-units-scene .computer-frame'), units),
+  new GroupUnitsScene(document.body.querySelector('.circle-units-scene .computer-frame'), units)
 ];
 
 scroll.registerHandler(new BodyScrollClassHandler());
