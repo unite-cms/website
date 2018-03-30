@@ -1,9 +1,12 @@
 import FloatingUnit from "./FloatingUnit";
+import random = require("lodash/fp/random");
 
 export abstract class FloatingUnitScene {
 
   visibleSection : HTMLElement;
   active : boolean = false;
+  minVisiblePixelsEnter : number = 300;
+  minVisiblePixelsLeave : number = 200;
   units : FloatingUnit[] = [];
 
   constructor(visibleSection : HTMLElement, units : FloatingUnit[]) {
@@ -15,14 +18,18 @@ export abstract class FloatingUnitScene {
   protected setInactive() {
     this.units.forEach((unit : FloatingUnit) => {
       unit.fixed = false;
-      unit.left = 200;
-      unit.top = 200;
+      unit.setToInitialPosition();
     });
   }
 
-  public update() {
+  public update(scroll : number) {
     let rect = this.visibleSection.getBoundingClientRect();
-    if(window.innerHeight - rect.bottom >= 0 && ((window.scrollY < 20 && rect.top >= 0) || (window.scrollY >= 20 && rect.top >= 50))) {
+
+    // get center point of visible section.
+    let centerPoint = rect.top + (rect.height / 2);
+
+    // This area is active, if centerPoint is not passed and top reached the screen.
+    if(rect.top < this.minVisiblePixelsEnter && centerPoint > this.minVisiblePixelsLeave) {
       if(!this.active) {
         this.active = true;
         this.setActive();
@@ -36,23 +43,14 @@ export abstract class FloatingUnitScene {
   }
 }
 
-export class FrontIntroScene extends FloatingUnitScene {
-  protected setActive() {
-    this.units.forEach((unit : FloatingUnit) => {
-      unit.fixed = false;
-      unit.left = 200;
-      unit.top = 200;
-    });
-  }
-}
-
 export class GroupUnitsScene extends FloatingUnitScene {
   protected setActive() {
-    let offsetTop = window.scrollY + this.visibleSection.getBoundingClientRect().top;
+    let offsetTop = window.scrollY + this.visibleSection.getBoundingClientRect().top + this.visibleSection.getBoundingClientRect().height / 2;
+    let offsetLeft = this.visibleSection.getBoundingClientRect().left + this.visibleSection.getBoundingClientRect().width / 2;
     this.units.forEach((unit : FloatingUnit, index) => {
       unit.fixed = true;
-      unit.left = 80 + (index * 30);
-      unit.top = offsetTop + 30;
+      unit.left = offsetLeft;
+      unit.top = offsetTop;
     });
   }
 }

@@ -9,6 +9,7 @@ export default class ScrollManager {
   event : string = 'scroll';
   throttle : number = 100;
   scrollHandler : ScrollHandler[] = [];
+  initialized : boolean = false;
 
   constructor() {
     window.addEventListener(this.event, throttle(this.throttle, () => {
