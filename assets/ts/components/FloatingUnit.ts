@@ -34,6 +34,14 @@ export default class FloatingUnit {
       let y = this.fixed ? this.top : this.top + (scroll * this.scrollFactor);
       let x = this.left;
 
+      if(x > document.body.clientWidth) {
+        x = document.body.clientWidth;
+      }
+
+      if(y > document.body.clientHeight) {
+        y = document.body.clientHeight;
+      }
+
       this.domElement.style.opacity = '1';
       this.domElement.style.transform = 'translate3d(0,0,0) translateX(' + x + 'px) translateY(' + y + 'px) scale(' + scale + ')';
     }

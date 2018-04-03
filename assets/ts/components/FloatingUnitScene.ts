@@ -1,5 +1,4 @@
 import FloatingUnit from "./FloatingUnit";
-import random = require("lodash/fp/random");
 
 export abstract class FloatingUnitScene {
 
@@ -45,12 +44,70 @@ export abstract class FloatingUnitScene {
 
 export class GroupUnitsScene extends FloatingUnitScene {
   protected setActive() {
-    let offsetTop = window.scrollY + this.visibleSection.getBoundingClientRect().top + this.visibleSection.getBoundingClientRect().height / 2;
-    let offsetLeft = this.visibleSection.getBoundingClientRect().left + this.visibleSection.getBoundingClientRect().width / 2;
+
+    let rect = this.visibleSection.getBoundingClientRect();
+    let width = rect.width;
+    let height = rect.height;
+    let space = this.units[0].domElement.clientWidth;
+    let small_device = space < 20;
+    let centerX = rect.left + (width) / 2;
+    let centerY = window.scrollY + rect.top + (height) / 2 - (small_device ? 0 : (height * 0.02));
+    let w1 = width / 100;
+    let h1 = height / 100;
+
     this.units.forEach((unit : FloatingUnit, index) => {
       unit.fixed = true;
-      unit.left = offsetLeft;
-      unit.top = offsetTop;
+      unit.left = centerX;
+      unit.top = centerY;
+
+      if(index % 4 == 0) {
+        unit.left = centerX - w1 * (small_device ? 21 : 30);
+      }
+
+      if(index % 4 == 1) {
+        unit.left = centerX - w1 * (small_device ? 7 : 10);
+      }
+
+      if(index % 4 == 2) {
+        unit.left = centerX + w1 * (small_device ? 7 : 10);
+      }
+
+      if(index % 4 == 3) {
+        unit.left = centerX + w1 * (small_device ? 21 : 30);
+      }
+
+      if(index < 4) {
+        unit.top = centerY - h1 * (small_device ? 15 : 13.5);
+      } else if(index < 8) {
+        unit.top = centerY - h1 * (small_device ? -5 : 4.5);
+      } else if(index < 12) {
+        if(!small_device) {
+          unit.top = centerY + h1 * 4.5;
+        }
+      } else {
+        if(!small_device) {
+          unit.top = centerY + h1 * 13.5;
+        }
+      }
+    });
+  }
+}
+
+export class CircleUnitsScene extends FloatingUnitScene {
+  protected setActive() {
+
+    let rect = this.visibleSection.getBoundingClientRect();
+    let width = rect.width;
+    let height = rect.height;
+    let space = this.units[0].domElement.clientWidth;
+    let small_device = space < 20;
+    let centerX = rect.left + (width) / 2;
+    let centerY = window.scrollY + rect.top + (height) / 2 - (small_device ? 0 : (height * 0.02));
+
+    this.units.forEach((unit : FloatingUnit, index) => {
+      unit.fixed = true;
+      unit.left = centerX + Math.cos((index / (small_device ? 3 : 8)) * Math.PI) * (space * (small_device ? 4 : 6));
+      unit.top = centerY + Math.sin((index / (small_device ? 3 : 8)) * Math.PI) * (space * (small_device ? 4 : 6));
     });
   }
 }

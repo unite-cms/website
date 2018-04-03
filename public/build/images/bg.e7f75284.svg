@@ -1,0 +1,31 @@
+<svg width="100%" height="auto" viewBox="0 0 1440 1133" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="5.11471485%" y1="16.103606%" x2="57.8063972%" y2="16.1036059%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="40.8695057%" id="linearGradient-5">
+            <stop stop-color="#02212B" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#02212B" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-4">
+            <g id="Group-10" transform="translate(-328.000000, -596.000000)">
+                <polygon id="Triangle" fill="url(#linearGradient-1)" opacity="0.04" filter="url(#filter-2)" transform="translate(675.245109, 1112.363452) rotate(-345.000000) translate(-675.245109, -1112.363452) " points="675.245109 627.817439 1244.47657 1596.90946 106.013645 1596.90946"></polygon>
+                <polygon id="Triangle" fill="url(#linearGradient-1)" opacity="0.109148551" filter="url(#filter-3)" transform="translate(1527.561422, 842.060239) rotate(-404.000000) translate(-1527.561422, -842.060239) " points="1527.56142 77.3780097 1947.90312 1606.74247 1107.21973 1606.74247"></polygon>
+                <polygon id="Triangle" fill="url(#linearGradient-1)" opacity="0.04" filter="url(#filter-4)" transform="translate(1520.245109, 1019.620984) rotate(-345.000000) translate(-1520.245109, -1019.620984) " points="1520.24511 535.074971 2089.47657 1504.167 951.013645 1504.167"></polygon>
+                <rect id="Rectangle-8" fill="url(#linearGradient-5)" x="328" y="1107" width="1440" height="622"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

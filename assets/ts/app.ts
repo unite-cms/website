@@ -5,14 +5,16 @@ import feather = require('feather-icons');
 import FloatingUnit from "./components/FloatingUnit";
 import ScrollManager from "./components/ScrollManager";
 import BodyScrollClassHandler from "./components/BodyScrollClassHandler";
-import {FloatingUnitScene, GroupUnitsScene} from "./components/FloatingUnitScene";
+import {CircleUnitsScene, FloatingUnitScene, GroupUnitsScene} from "./components/FloatingUnitScene";
+import delay = require("lodash/fp/delay");
 
 
 let scroll = new ScrollManager();
 let units : FloatingUnit[] = [];
 let scenes : FloatingUnitScene[] = [
   new GroupUnitsScene(document.body.querySelector('.group-units-scene .computer-frame'), units),
-  new GroupUnitsScene(document.body.querySelector('.circle-units-scene .computer-frame'), units)
+  new CircleUnitsScene(document.body.querySelector('.circle-units-scene .computer-frame'), units),
+  new CircleUnitsScene(document.body.querySelector('.group2-units-scene .computer-frame'), units),
 ];
 
 scroll.registerHandler(new BodyScrollClassHandler());
@@ -69,5 +71,7 @@ window.onload = function(){
   });
 
   scroll.updateHandler();
-  document.body.classList.add(('window-loaded'));
+  delay(200, () => {
+    document.body.classList.add(('window-loaded'));
+  });
 };
