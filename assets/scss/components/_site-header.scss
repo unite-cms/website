@@ -57,7 +57,6 @@ header.site-header {
           text-decoration: none;
           font-size: 24px;
           padding: 10px 60px;
-          opacity: 0.75;
 
           svg.feather {
             vertical-align: middle;
@@ -65,12 +64,26 @@ header.site-header {
           }
 
           &.active {
-            opacity: 1;
             font-weight: bold;
           }
 
           &:hover {
             text-decoration: underline;
+          }
+
+          &.docs {
+            text-decoration: none;
+            background: white;
+            border-radius: 50px;
+            color: map-get($colors, darkblue);
+            text-align: center;
+            padding: 5px 30px;
+            margin: 10px 20px;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+
+            &:hover {
+              box-shadow: 0 10px 20px 0 rgba(0,0,0,0.40);
+            }
           }
         }
       }
@@ -274,6 +287,11 @@ body.scroll {
               height: 16px;
               margin: -4px -2px 0 0;
             }
+
+            &.docs {
+              margin: 0 10px;
+              padding: 0 20px;
+            }
           }
         }
       }
@@ -287,6 +305,17 @@ body.scroll {
           li {
             a {
               color: map-get($colors, darkblue);
+
+              &.docs {
+                background: none;
+                border: 1px solid map-get($colors, darkblue);
+                box-shadow: none;
+
+                &:hover {
+                  background: map-get($colors, darkblue);
+                  color: white;
+                }
+              }
             }
           }
         }
@@ -311,6 +340,10 @@ body.scroll {
         li {
           a {
             padding: 0 20px;
+
+            &.docs {
+              margin: 0 20px;
+            }
           }
         }
       }

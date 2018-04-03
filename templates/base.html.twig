@@ -15,11 +15,18 @@
                     <span class="menu-icon"></span>
                 </label>
                 <ol>
-                    <li><a class="active" href="#"><i data-feather="arrow-right"></i> Unite</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Use cases</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a class="docs" href="#">Docs</a></li>
+                    {% for item in [
+                        { route: 'front', name: 'Unite' },
+                        { route: 'about', name: 'About' }
+                    ] %}
+                        <li>
+                            <a{% if app.request.attributes.get('_route') == item.route %} class="active"{% endif %} href="{{ path(item.route) }}">
+                                {% if app.request.attributes.get('_route') == item.route %}<i data-feather="arrow-right"></i>{% endif %}
+                                {{ item.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li><a class="docs" href="https://docs.unitecms.io">Docs</a></li>
                 </ol>
             </nav>
         </header>
