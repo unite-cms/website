@@ -5,15 +5,17 @@ export default class FloatingUnit {
   public scrollFactor : number = 1;
   protected initialTop : number;
   protected initialLeft: number;
+  protected maxTopElement : HTMLElement;
   public top : number;
   public left: number;
   public scaleFactor : number = 1;
   public fixed : boolean = false;
   public domElement : HTMLElement;
 
-  constructor(domElement : HTMLElement, index : number, initialLeft : number = 100, initialTop : number = 100) {
+  constructor(domElement : HTMLElement, index : number, initialLeft : number = 100, initialTop : number = 100, maxTopElement : HTMLElement = null) {
     this.initialLeft = initialLeft;
     this.initialTop = initialTop;
+    this.maxTopElement  = maxTopElement;
     this.left = window.innerWidth / 2 - 10;
     this.top = 200;
     this.domElement = domElement;
@@ -34,8 +36,11 @@ export default class FloatingUnit {
       let y = this.fixed ? this.top : this.top + (scroll * this.scrollFactor);
       let x = this.left;
 
-      if(x > document.body.clientWidth) {
-        x = document.body.clientWidth;
+      if(this.maxTopElement) {
+        let maxTopRect = this.maxTopElement.getBoundingClientRect();
+        if(maxTopRect.top < 0) {
+          y = maxTopRect.top;
+        }
       }
 
       if(y > document.body.clientHeight) {

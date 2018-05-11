@@ -25,6 +25,12 @@ section.text-intro {
   }
 }
 
+body.docs {
+  section.text-intro {
+    background: none;
+  }
+}
+
 section.text-block {
   text-align: left;
   position: relative;

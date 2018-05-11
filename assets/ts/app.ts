@@ -1,17 +1,25 @@
 import random = require("lodash/fp/random");
 import each = require("lodash/fp/each");
 import feather = require('feather-icons');
+import scrollToElement = require('scroll-to-element');
 
 import FloatingUnit from "./components/FloatingUnit";
 import ScrollManager from "./components/ScrollManager";
 import BodyScrollClassHandler from "./components/BodyScrollClassHandler";
-import {CircleUnitsScene, FloatingUnitScene, GroupUnitsScene} from "./components/FloatingUnitScene";
+import {
+  CircleUnitsScene,
+  FinishScene,
+  FloatingUnitScene,
+  GroupUnitsScene,
+  RowUnitsScene
+} from "./components/FloatingUnitScene";
 import delay = require("lodash/fp/delay");
 
 
 let scroll = new ScrollManager();
 let units : FloatingUnit[] = [];
 let scenes : FloatingUnitScene[] = [];
+let maxTopElement = null;
 
 if(document.body.querySelector('.group-units-scene .computer-frame')) {
   scenes.push(new GroupUnitsScene(document.body.querySelector('.group-units-scene .computer-frame'), units));
@@ -24,6 +32,19 @@ if(document.body.querySelector('.circle-units-scene .computer-frame')) {
 if(document.body.querySelector('.group2-units-scene .computer-frame')) {
   scenes.push(new CircleUnitsScene(document.body.querySelector('.group2-units-scene .computer-frame'), units));
 }
+
+if(document.body.querySelector('.row-units-scene .computer-frame')) {
+  scenes.push(new RowUnitsScene(document.body.querySelector('.row-units-scene .computer-frame'), units));
+}
+if(document.body.querySelector('.section-features')) {
+  maxTopElement = document.body.querySelector('.section-features');
+  scenes.push(new FinishScene(maxTopElement, units));
+}
+if(document.body.querySelector('.site-footer')) {
+  scenes.push(new FinishScene(document.body.querySelector('.site-footer'), units));
+}
+
+
 
 scroll.registerHandler(new BodyScrollClassHandler());
 each((scene : FloatingUnitScene) => {
@@ -67,7 +88,7 @@ if(document.body.querySelector('.front-intro article.main')) {
 
   each((element: HTMLElement) => {
     let initialPosition = findUnitPosition(units.length + 1, rect, windowWidth, windowHeight);
-    let unit = new FloatingUnit(element, units.length + 1, initialPosition[0], initialPosition[1]);
+    let unit = new FloatingUnit(element, units.length + 1, initialPosition[0], initialPosition[1], maxTopElement);
     units.push(unit);
     scroll.registerHandler(unit);
   }, document.body.querySelectorAll('.floating-unit'));
@@ -79,6 +100,14 @@ if(document.body.querySelector('.front-intro article.main')) {
 
 feather.replace();
 
+let anchorLinks = document.querySelectorAll('a[href*="#"]');
+for (let i = 0; i < anchorLinks.length; i++) {
+  anchorLinks[i].addEventListener('click', function(event) {
+    event.preventDefault();
+    scrollToElement(anchorLinks[i].getAttribute('href'));
+  });
+}
+
 window.onload = function(){
 
   units.forEach((unit : FloatingUnit, index) => {
@@ -88,5 +117,23 @@ window.onload = function(){
   scroll.updateHandler();
   delay(200, () => {
     document.body.classList.add(('window-loaded'));
+  });
+
+  // Some menu js improvements.
+  let docsMenuToggle = document.getElementById('docs-menu-toggle');
+  document.getElementById('site-menu-toggle').addEventListener('change', function(){
+    if(docsMenuToggle) {
+      if(this.checked) {
+        docsMenuToggle.classList.add("send-to-back");
+      } else {
+        docsMenuToggle.classList.remove("send-to-back");
+        document.activeElement.blur();
+      }
+    }
+  });
+  document.getElementById('docs-menu-toggle').addEventListener('change', function(){
+    if(!this.checked) {
+      document.activeElement.blur();
+    }
   });
 };

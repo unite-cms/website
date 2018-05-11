@@ -22,6 +22,13 @@ header.site-header {
     background: url('../../images/logo.svg') no-repeat left center;
     background-size: contain;
 
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     strong {
       font-weight: bold;
     }
@@ -38,7 +45,7 @@ header.site-header {
       right: 0;
       height: 100vh;
       left: 0;
-      z-index: 100;
+      z-index: 110;
       background: $color-backdrop;
       opacity: 0;
       color: map-get($colors, white);
@@ -164,7 +171,8 @@ header.site-header {
 
       &:focus {
         + label {
-          outline: 1px dotted rgba(255,255,255,0.5);
+          outline: auto 2px Highlight;
+          outline: auto 5px -webkit-focus-ring-color;
         }
 
         &:checked {
@@ -218,10 +226,11 @@ header.site-header {
   }
 }
 
-body.scroll {
+body.scroll, body.docs {
   header.site-header {
     padding: 10px 0;
     background: rgba(255,255,255, 1);
+    box-shadow: 0 4px 30px 0 rgba(0,0,0,0.06);
     color: map-get($colors, darkblue);
     a { color: map-get($colors, darkblue); }
 
@@ -237,9 +246,14 @@ body.scroll {
   }
 }
 
+body.docs, body.scroll.docs {
+  header.site-header {
+    padding-left: 40px;
+  }
+}
+
 @media (min-width: $width-small) {
   header.site-header {
-
     padding: 20px 0;
 
     .site-name {
@@ -285,7 +299,7 @@ body.scroll {
             svg.feather {
               width: 16px;
               height: 16px;
-              margin: -4px -2px 0 0;
+              margin: -3px -2px 0 0;
             }
 
             &.docs {
@@ -298,7 +312,7 @@ body.scroll {
     }
   }
 
-  body.scroll {
+  body.scroll, body.docs {
     header.site-header {
       .site-menu {
         ol {
@@ -320,6 +334,14 @@ body.scroll {
           }
         }
       }
+    }
+  }
+}
+
+@media (min-width: $width-medium) {
+  body.docs, body.scroll.docs {
+    header.site-header {
+      padding-left: 0;
     }
   }
 }

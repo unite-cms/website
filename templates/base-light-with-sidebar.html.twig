@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block bodyclass %}docs{% endblock %}
+{% block body %}
+    <input id="docs-menu-toggle" type="checkbox">
+    <label for="docs-menu-toggle">
+        <span class="menu-icon"></span>
+    </label>
+    <aside class="docs-navigation">
+        {% block sidebar %}{% endblock %}
+    </aside>
+    <section class="docs-content">
+        {% block content %}{% endblock %}
+    </section>
+{% endblock %}

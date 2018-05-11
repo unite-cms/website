@@ -6,9 +6,9 @@
         <title>{% block title %}{% endblock %} | unite cms - Open Source decoupled content management system</title>
         <link rel="stylesheet" href="{{ asset('build/css/critical.css') }}">
     </head>
-    <body>
+    <body class="{% block bodyclass %}{% endblock %}">
         <header class="site-header">
-            <h2 class="site-name"><strong>unite</strong> cms</h2>
+            <h2 class="site-name"><a href="{{ path('front') }}"><strong>unite</strong> cms</a> {% block sitename %}{% endblock %}</h2>
             <nav class="site-menu">
                 <input id="site-menu-toggle" type="checkbox">
                 <label for="site-menu-toggle">
@@ -17,8 +17,7 @@
                 <ol>
                     {% for item in [
                         { route: 'front', name: 'unite' },
-                        { route: 'about', name: 'About' },
-                        { route: 'docs', name: 'Docs' }
+                        { route: 'about', name: 'About us' }
                     ] %}
                         <li>
                             <a{% if app.request.attributes.get('_route') == item.route %} class="active"{% endif %} href="{{ path(item.route) }}">
@@ -27,14 +26,24 @@
                             </a>
                         </li>
                     {% endfor %}
-                    <li><a class="docs" href="https://docs.unitecms.io">Docs</a></li>
+                    <li><a class="docs" href="{{ path('docs') }}">Docs</a></li>
                 </ol>
             </nav>
         </header>
 
         {% block body %}{% endblock %}
         <footer class="site-footer">
-
+            <div class="inner">
+                <p class="footer-left">
+                    <a href="{{ path('imprint') }}">Imprint</a><!-- |
+                    <a href="#">Legal</a> |
+                    <a href="#">Privacy</a-->
+                </p>
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="white" fill-rule="evenodd" d="M795.95232,1213.02389 L799.90464,1216.99988 L795.90464,1221.02383 L788,1213.07186 L800,1201 L803.95232,1204.97599 L795.95232,1213.02389 Z M807.857143,1216.9521 L799.857143,1225 L795.904823,1221.02401 L803.904823,1212.97611 L807.857143,1216.9521 Z M812,1213.07186 L809,1216.08982 L802,1209.0479 L805,1206.02994 L812,1213.07186 Z" transform="translate(-788 -1201)"></path>
+                </svg>
+                <p class="footer-right">Vienna, {{ "now"|date("Y") }}</p>
+            </div>
         </footer>
         <script src="{{ asset('build/js/app.js') }}"></script>
         <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">

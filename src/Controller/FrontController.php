@@ -25,4 +25,10 @@ class FrontController extends Controller
      * @Template("docs/index.html.twig")
      */
     public function docs() {}
+
+    /**
+     * @Route("/imprint", name="imprint")
+     * @Template("imprint/index.html.twig")
+     */
+    public function imprint() {}
 }

@@ -111,3 +111,41 @@ export class CircleUnitsScene extends FloatingUnitScene {
     });
   }
 }
+
+export class RowUnitsScene extends FloatingUnitScene {
+  protected setActive() {
+
+    let rect = this.visibleSection.getBoundingClientRect();
+    let width = rect.width;
+    let height = rect.height;
+    let space = this.units[0].domElement.clientWidth;
+    let small_device = space < 20;
+    let centerX = rect.left + (width) / 2;
+    let centerY = window.scrollY + rect.top + (height) / 2 - (small_device ? 0 : (height * 0.02));
+    let w1 = width / 100;
+    let h1 = height / 100;
+
+    this.units.forEach((unit : FloatingUnit, index) => {
+      unit.fixed = true;
+      unit.top = centerY;
+      unit.left = window.innerWidth + 20;
+
+      if(index % 4 == 1) {
+        unit.left = centerX - w1 * (small_device ? 21 : 30) + (index * (small_device ? 21 : 30));
+      }
+    });
+  }
+}
+
+export class FinishScene extends FloatingUnitScene {
+  protected setActive() {
+    this.units.forEach((unit : FloatingUnit, index) => {
+      unit.domElement.style.display = 'none';
+    });
+  }
+  protected setInactive() {
+    this.units.forEach((unit : FloatingUnit, index) => {
+      unit.domElement.style.display = 'block';
+    });
+  }
+}

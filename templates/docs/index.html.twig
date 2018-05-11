@@ -1,31 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-light-with-sidebar.html.twig' %}
 {% block title %}Docs{% endblock %}
+{% block sitename %} | docs{% endblock %}
+{% block sidebar %}
+    <h5>unite cms v.0.4</h5>
+    <ul>
 
-{% block body %}
-    <section class="text-intro">
+    </ul>
+{% endblock %}
+{% block content %}
+    <section class="text-intro" style="min-height: 100vh;">
         <article class="main">
             <h1>Documentation</h1>
-            <p>⚠️ unite is not fully production ready. At the moment there is no upgrade path between versions, so be
-                very careful if you are using unite cms for a real project right now. As soon as we launch our public
+            <p>⚠️ unite is not fully production ready yet. At the moment there is no upgrade path between versions, so be
+                very carefully if you are using unite cms for a real project right now. As soon as we launch our public
                 beta, there will be an upgrade path for each new version.</p>
-        </article>
-    </section>
-    <section class="text-block">
-        <article class="main">
-            <h2>Lorem Ipsum</h2>
-            <p>Unternehmen bekommen mit united CMS eine zentrale Anwendung, für die Verwaltung aller online Projekte. Durch die gewählte Open Source Lizenz, kann united CMS selber betrieben werden (On Premise Installation), das Büro unite bietet aber auch eine Cloud-Variante an, die in einem österreichischen Datenzentrum gehostet wird.
-
-                Entwickler_innen können united CMS für jedes beliebige Projekt unter Verwendung jeder beliebigen Technologie verwenden, da alle Daten über eine GraphQL API Schnittstelle bezogen werden. Softwareprojekte können so innerhalb von Tagen statt Monaten entwickelt und mit extrem geringem Wartungsaufwand betrieben werden.
-
-                united CMS stellt ein intuitives und einfaches Userinterface für Redakteur_innen zur Verfügung, das laufend mit Hilfe von Methoden aus dem Bereich User Research weiterentwickelt wird. Durch die datenzentrierte Architektur von united CMS können Redakteur_innen mit einem einzigen System alle Anwendungen gemeinsam verwalten.
-
-                Eine erste Version von united CMS wird im Frühjahr 2018 veröffentlicht.</p>
-        </article>
-    </section>
-    <section class="text-block">
-        <article class="main">
-            <h2>Lorem Ipsum</h2>
-            <p>We are a small company in Vienna, in the center of europe that try to follow the pattern of sustainable software development.</p>
         </article>
     </section>
 {% endblock %}

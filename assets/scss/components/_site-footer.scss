@@ -1,0 +1,30 @@
+
+.site-footer {
+  padding: 10px;
+  background: rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 10;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    p {
+      font-size: 13px;
+      margin: 0;
+      opacity: 1;
+    }
+  }
+}
+
+body.docs {
+  .site-footer {
+    background: map-get($colors, darkblue);
+
+    p, a {
+      color: white;
+    }
+  }
+}

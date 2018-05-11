@@ -1,0 +1,77 @@
+
+.section-features {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  background: map-get($colors, purple);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 20px;
+  z-index: 10;
+
+  > h2 {
+    flex: 1 1 100%;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  .feature {
+    background: white;
+    box-shadow: 0 30px 50px 0 rgba(72,53,156,0.38);
+    border-radius: 5px;
+    min-width: 290px;
+    max-width: 570px;
+    flex: 1;
+    margin: 20px 20px 0;
+    padding: 30px;
+    box-sizing: border-box;
+
+    h1, h2, h3, h4, h5, h6, p {
+      color: map-get($colors, darkblue);
+      text-align: center;
+
+      a {
+        color: map-get($colors, darkblue);
+      }
+    }
+
+    .feather {
+      width: 70px;
+      height: 70px;
+      padding: 15px;
+      margin: 20px auto 0;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: $width-small) {
+  .section-features {
+    padding: 15px;
+
+    .feature {
+      margin: 15px;
+      border-radius: 10px;
+      padding: 50px;
+    }
+  }
+}
+
+@media (min-width: $width-large) {
+  .section-features {
+    padding: 40px 20px;
+
+    .feature {
+      margin: 20px;
+      min-width: 450px;
+    }
+  }
+}
+
+@media (min-width: $width-very-large) {
+  .section-features {
+    padding: 70px 20px;
+  }
+}

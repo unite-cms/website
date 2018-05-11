@@ -17,12 +17,22 @@
     background: url("../images/computer.svg") no-repeat center center;
     background-size: contain;
   }
+
+  .section-anchor {
+    position: absolute;
+    top: -50px;
+  }
 }
 
 @media (min-width: $width-small) {
   .section-with-frame {
     .computer-frame {
       height: 300px;
+    }
+
+    .section-anchor {
+      position: absolute;
+      top: -60px;
     }
   }
 }
@@ -69,6 +79,11 @@
 @media (min-width: $width-large) {
   .section-with-frame {
     margin: 150px 0;
+
+    .section-anchor {
+      position: absolute;
+      top: -120px;
+    }
   }
 }
 

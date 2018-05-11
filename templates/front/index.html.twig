@@ -9,7 +9,7 @@
             <p class="content">unite cms is a radical flexible content management system that allows you to manage and connect data for any project together in one single application.</p>
             <p class="actions">
                 <a href="#" class="button green"><i data-feather="command"></i> Getting started</a>
-                <a href="#" class="button white"><i data-feather="arrow-down"></i> Explore</a>
+                <a href="#main-content" class="button white"><i data-feather="arrow-down"></i> Explore</a>
             </p>
             <ul class="devices">
                 {% for d in [
@@ -33,15 +33,15 @@
     </section>
 
     <section class="section-with-frame right group-units-scene">
-
+        <div class="section-anchor" id="main-content"></div>
         <article class="main">
             <h2 class="h1">rethink content management</h2>
             <p>Don't think in separate projects, think in content categories. unite cms allows you to manage all data from your CRM, CMS, asset, employees or door access controll system together in one single application.</p>
 
-            <h3><i data-feather="chevron-right"></i> infinite connectivity</h3>
+            <h3><i class="color-icon red" data-feather="link"></i> infinite connectivity</h3>
             <p class="intend-left">Connect all your content across projects without any limits. Find new solutions by combining existing data in a new way. Get insights and create new products based on your data base.</p>
 
-            <h3><i data-feather="chevron-right"></i> just a cms — nothing more</h3>
+            <h3><i class="color-icon yellow" data-feather="zap"></i> just a cms — nothing more</h3>
             <p class="intend-left">Most CMS out there have tones of functions. unite cms focuses only on one thing: let you manage content.</p>
         </article>
 
@@ -55,11 +55,11 @@
             <p>Instead of building your next project based on a heavy CMS, that provides thousands of functions, modules
                 and themes, you just create a new application using your favourite technology stack and just consume the unite cms GraphQL API.</p>
 
-            <h3><i data-feather="chevron-right"></i> 100% decoupled - 100% flexible</h3>
+            <h3><i class="color-icon purple" data-feather="radio"></i> 100% decoupled - 100% flexible</h3>
             <p class="intend-left">The heart of unite cms is a GraphQL API, that allows developers to access all content
                 in an easy and fast way</p>
 
-            <h3><i data-feather="chevron-right"></i> Separation of concerns</h3>
+            <h3><i class="color-icon green" data-feather="grid"></i> Separation of concerns</h3>
             <p class="intend-left">Use a single installation of unite cms for managing content and create an infinity
                 number of applications to display or work with it.</p>
         </article>
@@ -67,7 +67,7 @@
         <div class="computer-frame"></div>
 
     </section>
-    <section class="section-with-frame right group2-units-scene">
+    <section class="section-with-frame right row-units-scene">
 
         <article class="main">
             <h2 class="h1">Designed for content editors</h2>
@@ -75,11 +75,11 @@
                 on different plugins, that not always play nicely together. Also, in many projects technical features
                 are the main focus, the look and feel of the administration area has no high priority.</p>
 
-            <h3><i data-feather="chevron-right"></i> unified and carefully crafted UI</h3>
+            <h3><i class="color-icon purple" data-feather="edit-2"></i> unified and carefully crafted UI</h3>
             <p class="intend-left">unite cms administration interface provides an clean and unified user experience,
                 that was specifically build for content editors.</p>
 
-            <h3><i data-feather="chevron-right"></i> A tool for creative professionals</h3>
+            <h3><i class="color-icon red" data-feather="star"></i> A tool for creative professionals</h3>
             <p class="intend-left">unite cms is not a website builder, where you can customize your website design,
                 because this is the designer's job. You will also be not able to just download a plugin to extend the
                 functionality of your website, because this is the developer's job.</p>
@@ -87,6 +87,49 @@
 
         <div class="computer-frame"></div>
 
+    </section>
+
+    <section class="section-features">
+        <h2 class="h1">Main features</h2>
+
+        <article class="feature">
+            <i class="color-icon green" data-feather="github"></i>
+            <h2 class="h3">Open Source</h2>
+            <p>We believe, that you should be able to run unite cms on your own servers in order to trust
+                unitecms.io. This way, you can take your data at any time and move to your own infrastructure.
+                We also want to make unite cms the best CMS out there, so we <a href="https://github.com/unite-cms/unite-cms">need all your help</a> with this.</p>
+        </article>
+
+        <article class="feature">
+            <i class="color-icon purple" data-feather="edit-2"></i>
+            <h2 class="h3">Only the best CMS tools</h2>
+            <p>unite cms comes with advanced CMS features like content revisions, soft deletion or multi language
+                support and this is just the beginning. Our main focus is to continuously improve the content editors
+                user experience.</p>
+        </article>
+
+        <article class="feature">
+            <i class="color-icon red" data-feather="cpu"></i>
+            <h2 class="h3">GraphQL API</h2>
+            <p>unite cms implements a full GraphQL API per default. This allows developers to query and write
+                even deeply connected content in an incredible easy and fast way.</p>
+        </article>
+
+        <article class="feature">
+            <i class="color-icon yellow" data-feather="move"></i>
+            <h2 class="h3">radical flexible</h2>
+            <p>Want to build a website? An app or a whole community? Need a custom CRM or accounting system? Do you
+                have an innovative startup idea that needs to connect sensors from your flowerpot to a 3D printer?
+                unite cms can be used to manage content for all of this applications and even more.</p>
+        </article>
+    </section>
+
+    <section class="section-actions">
+        <h2 class="h1">Getting started</h2>
+        <p class="actions">
+            <a href="{{ path('docs') }}" class="button white"><i data-feather="book"></i> Check out the docs</a>
+        </p>
+        <p class="small">(Public beta launches in summer 2018)</p>
     </section>
 
     {% for k, j in 1..4 %}

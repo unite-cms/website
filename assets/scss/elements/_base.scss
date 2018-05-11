@@ -7,16 +7,29 @@ body {
   a {
     color: map-get($colors, white);
   }
+
+  &.docs {
+    background: white;
+    color: map-get($colors, darkblue);
+
+    a {
+      color: map-get($colors, darkblue);
+    }
+  }
 }
 
 p {
   font-size: 14px;
   line-height: 150%;
-  opacity: 0.75;
+  opacity: 0.85;
   margin: 0 0 10px;
 
   &.intend-left {
     margin-left: 30px;
+  }
+
+  &.small {
+    font-size: 13px;
   }
 }
 
@@ -29,6 +42,17 @@ p.alert-text {
   text-transform: uppercase;
   font-size: 14px;
   margin: 15px 0;
+}
+
+.feather.color-icon {
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: 100%;
+
+  &.red { background: map-get($colors, red); }
+  &.purple { background: map-get($colors, purple); }
+  &.green { background: map-get($colors, green); }
+  &.yellow { background: map-get($colors, yellow); color: map-get($colors, darkblue); }
 }
 
 h1, .h1 {
