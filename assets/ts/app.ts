@@ -22,7 +22,7 @@ if(document.body.querySelector('.circle-units-scene .computer-frame')) {
 }
 
 if(document.body.querySelector('.group2-units-scene .computer-frame')) {
-  new CircleUnitsScene(document.body.querySelector('.group2-units-scene .computer-frame'), units);
+  scenes.push(new CircleUnitsScene(document.body.querySelector('.group2-units-scene .computer-frame'), units));
 }
 
 scroll.registerHandler(new BodyScrollClassHandler());

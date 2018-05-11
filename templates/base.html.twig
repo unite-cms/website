@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %} | unite cms - Open Source decoupled content management system</title>
         <link rel="stylesheet" href="{{ asset('build/css/critical.css') }}">
     </head>
     <body>
@@ -16,8 +16,9 @@
                 </label>
                 <ol>
                     {% for item in [
-                        { route: 'front', name: 'Unite' },
-                        { route: 'about', name: 'About' }
+                        { route: 'front', name: 'unite' },
+                        { route: 'about', name: 'About' },
+                        { route: 'docs', name: 'Docs' }
                     ] %}
                         <li>
                             <a{% if app.request.attributes.get('_route') == item.route %} class="active"{% endif %} href="{{ path(item.route) }}">

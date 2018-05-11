@@ -19,4 +19,10 @@ class FrontController extends Controller
      * @Template("about/index.html.twig")
      */
     public function about() {}
+
+    /**
+     * @Route("/docs", name="docs")
+     * @Template("docs/index.html.twig")
+     */
+    public function docs() {}
 }
