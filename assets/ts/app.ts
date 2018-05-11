@@ -131,9 +131,11 @@ window.onload = function(){
       }
     }
   });
-  document.getElementById('docs-menu-toggle').addEventListener('change', function(){
-    if(!this.checked) {
-      document.activeElement.blur();
-    }
-  });
+  if(docsMenuToggle) {
+    docsMenuToggle.addEventListener('change', function () {
+      if (!this.checked) {
+        document.activeElement.blur();
+      }
+    });
+  }
 };

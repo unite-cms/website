@@ -249,6 +249,15 @@ body.scroll, body.docs {
 body.docs, body.scroll.docs {
   header.site-header {
     padding-left: 40px;
+
+    .site-menu {
+      ol li {
+        a.docs {
+          background: map-get($colors, darkblue);
+          color: white;
+        }
+      }
+    }
   }
 }
 
@@ -331,6 +340,19 @@ body.docs, body.scroll.docs {
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+  body.docs, body.scroll.docs {
+    header.site-header {
+      .site-menu {
+        ol li {
+          a.docs {
+            background: map-get($colors, darkblue);
+            color: white;
           }
         }
       }

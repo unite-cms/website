@@ -3,6 +3,7 @@ body {
   background: map-get($colors, darkblue);
   font-family: $font-family;
   color: map-get($colors, white);
+  overflow-x: hidden;
 
   a {
     color: map-get($colors, white);

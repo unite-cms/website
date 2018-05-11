@@ -11,6 +11,54 @@
   transition: left 0.2s ease-out;
   background: white;
   z-index: 1;
+
+  h4.h5 {
+    text-transform: uppercase;
+    color: #666;
+    font-size: 13px;
+    margin-top: 30px;
+  }
+
+  ul {
+    li {
+
+      a {
+        display: block;
+        padding: 5px 0;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-top: -4px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      h5 {
+        font-weight: normal;
+        font-size: 16px;
+      }
+
+      ul {
+        margin-left: 15px;
+
+        li {
+          font-size: 14px;
+
+          svg {
+            width: 14px;
+            height: 14px;
+            margin-top: -2px;
+          }
+        }
+      }
+    }
+  }
 }
 
 input#docs-menu-toggle {
@@ -147,6 +195,19 @@ input#docs-menu-toggle {
 
 .docs-content {
   margin-left: 0;
+
+  .text-block {
+    margin-bottom: 50px;
+
+    h2 {
+      border-top: 2px solid #eee;
+      padding-top: 20px;
+    }
+
+    h3 {
+      margin-top: 30px;
+    }
+  }
 }
 
 @media (min-width: $width-medium) {

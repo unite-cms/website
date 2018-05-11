@@ -2,13 +2,22 @@
 {% block title %}Docs{% endblock %}
 {% block sitename %} | docs{% endblock %}
 {% block sidebar %}
-    <h5>unite cms v.0.4</h5>
+    <h4 class="h5">unite cms v.0.4</h4>
     <ul>
-
+        {% for topic in topics %}
+            <li>
+                <h5><a href="#{{ topic.slug }}"><i data-feather="book"></i> {{ topic.menu }}</a></h5>
+                <ul>
+                    {% for article in topic.articles %}
+                        <li><a href="#{{ topic.slug }}--{{ article.slug }}"><i data-feather="chevron-right"></i> {{ article.menu }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}
 {% block content %}
-    <section class="text-intro" style="min-height: 100vh;">
+    <section class="text-intro">
         <article class="main">
             <h1>Documentation</h1>
             <p>⚠️ unite is not fully production ready yet. At the moment there is no upgrade path between versions, so be
@@ -16,4 +25,18 @@
                 beta, there will be an upgrade path for each new version.</p>
         </article>
     </section>
+
+    {% for topic in topics %}
+        <section class="text-block" id="{{ topic.slug }}">
+            <article class="main">
+                <h2>{{ topic.headline }}</h2>
+                {{ topic.intro|raw }}
+
+                {% for article in topic.articles %}
+                    <h3 id="{{ topic.slug }}--{{ article.slug }}">{{ article.headline }}</h3>
+                    {{ article.content|raw }}
+                {% endfor %}
+            </article>
+        </section>
+    {% endfor %}
 {% endblock %}
