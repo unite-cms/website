@@ -14,7 +14,8 @@ import {
   RowUnitsScene
 } from "./components/FloatingUnitScene";
 import delay = require("lodash/fp/delay");
-
+import hljs = require("highlightjs");
+hljs.initHighlightingOnLoad();
 
 let scroll = new ScrollManager();
 let units : FloatingUnit[] = [];
@@ -120,22 +121,37 @@ window.onload = function(){
   });
 
   // Some menu js improvements.
-  let docsMenuToggle = document.getElementById('docs-menu-toggle');
-  document.getElementById('site-menu-toggle').addEventListener('change', function(){
+  let docsMenuToggle = <HTMLInputElement>document.getElementById('docs-menu-toggle');
+  let siteMenuToggle = <HTMLInputElement>document.getElementById('site-menu-toggle');
+
+  siteMenuToggle.addEventListener('change', function(){
     if(docsMenuToggle) {
       if(this.checked) {
         docsMenuToggle.classList.add("send-to-back");
       } else {
         docsMenuToggle.classList.remove("send-to-back");
-        document.activeElement.blur();
+        if(document.activeElement instanceof HTMLInputElement) {
+          document.activeElement.blur();
+        }
       }
     }
   });
   if(docsMenuToggle) {
     docsMenuToggle.addEventListener('change', function () {
       if (!this.checked) {
-        document.activeElement.blur();
+        if(document.activeElement instanceof HTMLInputElement) {
+          document.activeElement.blur();
+        }
       }
     });
+
+    let docMenuLinks = document.querySelectorAll('.docs-navigation a');
+    for(let key=0; key < docMenuLinks.length; key++) {
+      docMenuLinks[key].addEventListener('click', function(){
+        if(docsMenuToggle.checked) {
+          docsMenuToggle.checked = false;
+        }
+      });
+    }
   }
 };

@@ -200,12 +200,44 @@ input#docs-menu-toggle {
     margin-bottom: 50px;
 
     h2 {
-      border-top: 2px solid #eee;
       padding-top: 20px;
+      font-weight: normal;
+    }
+
+    .topic-lead {
+      margin-top: 20px;
+
+      p {
+        font-size: 17px;
+        opacity: 0.75;
+        max-width: 500px;
+      }
+      margin-bottom: 70px;
     }
 
     h3 {
       margin-top: 30px;
+      font-weight: normal;
+    }
+
+    .article {
+      position: relative;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+    }
+
+    .topic-anchor,
+    .article-anchor {
+      position: absolute;
+      left: 0;
+      top: -40px;
+      display: block;
+      width: 0;
+      height: 0;
+    }
+
+    .topic-anchor {
+      top: -70px;
     }
   }
 }
@@ -223,5 +255,27 @@ input#docs-menu-toggle {
 
   .docs-content {
     margin-left: 280px;
+
+    .text-block {
+
+      .topic-lead {
+        p {
+          font-size: 19px;
+        }
+        margin-bottom: 150px;
+      }
+
+      .article {
+        margin-top: 80px;
+      }
+
+      .topic-anchor {
+        top: -160px;
+      }
+
+      .article-anchor {
+        top: -80px;
+      }
+    }
   }
 }

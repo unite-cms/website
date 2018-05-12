@@ -21,6 +21,7 @@
         "@types/lodash": "^4.14.106",
         "eslint": "^4.19.1",
         "feather-icons": "^4.7.0",
+        "highlightjs": "^9.10.0",
         "lodash": "^4.17.5",
         "scroll-to-element": "^2.0.0"
     }

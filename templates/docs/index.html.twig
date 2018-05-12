@@ -27,14 +27,18 @@
     </section>
 
     {% for topic in topics %}
-        <section class="text-block" id="{{ topic.slug }}">
+        <section class="text-block">
+            <div class="topic-anchor" id="{{ topic.slug }}"></div>
             <article class="main">
-                <h2>{{ topic.headline }}</h2>
-                {{ topic.intro|raw }}
+                <h2><i data-feather="book"></i> {{ topic.headline }}</h2>
+                <div class="topic-lead">{{ topic.intro|raw }}</div>
 
                 {% for article in topic.articles %}
-                    <h3 id="{{ topic.slug }}--{{ article.slug }}">{{ article.headline }}</h3>
-                    {{ article.content|raw }}
+                    <div class="article">
+                        <div class="article-anchor" id="{{ topic.slug }}--{{ article.slug }}"></div>
+                        <h3>{{ article.headline }}</h3>
+                        {{ article.content|raw }}
+                    </div>
                 {% endfor %}
             </article>
         </section>

@@ -153,3 +153,51 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5 .h5 {
     font-size: 16px;
   }
 }
+
+pre {
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+  display: block;
+  background: rgba(0,0,0,0.025);
+  color: map-get($colors, darkblue);
+  border: 1px solid rgba(0,0,0,0.1);
+  font-size: 14px;
+  line-height: 150%;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+  background: white;
+  position: relative;
+
+  code {
+    display: block;
+    overflow-x: auto;
+    padding: 10px;
+  }
+
+  &:before, &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: map-get($colors, red);
+    top: 10px;
+    left: 10px;
+    border-radius: 100%;
+  }
+  &:after {
+    background: map-get($colors, green);
+    left: 30px;
+  }
+}
+
+@media (min-width: $width-medium) {
+  pre {
+    margin: 40px 0;
+
+    code {
+      padding: 20px;
+    }
+  }
+}
