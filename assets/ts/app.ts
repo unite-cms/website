@@ -6,6 +6,7 @@ import scrollToElement = require('scroll-to-element');
 import FloatingUnit from "./components/FloatingUnit";
 import ScrollManager from "./components/ScrollManager";
 import BodyScrollClassHandler from "./components/BodyScrollClassHandler";
+
 import {
   CircleUnitsScene,
   FinishScene,
@@ -15,6 +16,7 @@ import {
 } from "./components/FloatingUnitScene";
 import delay = require("lodash/fp/delay");
 import hljs = require("highlightjs");
+import DocsMenuScrollHandler from "./components/DocsMenuScrollHandler";
 hljs.initHighlightingOnLoad();
 
 let scroll = new ScrollManager();
@@ -48,6 +50,8 @@ if(document.body.querySelector('.site-footer')) {
 
 
 scroll.registerHandler(new BodyScrollClassHandler());
+scroll.registerHandler(new DocsMenuScrollHandler());
+
 each((scene : FloatingUnitScene) => {
   scroll.registerHandler(scene);
 }, scenes);
