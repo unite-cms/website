@@ -17,6 +17,7 @@ import {
 import delay = require("lodash/fp/delay");
 import hljs = require("highlightjs");
 import DocsMenuScrollHandler from "./components/DocsMenuScrollHandler";
+import UiScreenScrollHandler from "./components/UiScreenScrollHandler";
 hljs.initHighlightingOnLoad();
 
 let scroll = new ScrollManager();
@@ -51,6 +52,7 @@ if(document.body.querySelector('.site-footer')) {
 
 scroll.registerHandler(new BodyScrollClassHandler());
 scroll.registerHandler(new DocsMenuScrollHandler());
+scroll.registerHandler(new UiScreenScrollHandler());
 
 each((scene : FloatingUnitScene) => {
   scroll.registerHandler(scene);
@@ -105,7 +107,7 @@ if(document.body.querySelector('.front-intro article.main')) {
 
 feather.replace();
 
-let anchorLinks = document.querySelectorAll('a[href*="#"]');
+let anchorLinks = document.querySelectorAll('a[href^="#"]');
 for (let i = 0; i < anchorLinks.length; i++) {
   anchorLinks[i].addEventListener('click', function(event) {
     event.preventDefault();
