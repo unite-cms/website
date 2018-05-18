@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
 
     /**
-     * @Route("/", name="front")
+     * @Route("/", name="front", options={"sitemap" = true})
      * @Template("front/index.html.twig")
      */
     public function front()
@@ -18,7 +18,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/about", name="about")
+     * @Route("/about", name="about", options={"sitemap" = true})
      * @Template("about/index.html.twig")
      */
     public function about()
@@ -26,7 +26,7 @@ class FrontController extends Controller
     }
 
     /**
-     * @Route("/docs", name="docs")
+     * @Route("/docs", name="docs", options={"sitemap" = true})
      * @Template("docs/index.html.twig")
      */
     public function docs()
@@ -279,7 +279,7 @@ views available, however are planing to implement many different views (Media ga
     }
 
     /**
-     * @Route("/imprint", name="imprint")
+     * @Route("/imprint", name="imprint", options={"sitemap" = true})
      * @Template("imprint/index.html.twig")
      */
     public function imprint()
