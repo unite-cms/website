@@ -192,7 +192,19 @@ pre {
   }
 }
 
+.responsive-separator {
+  display: block;
+  text-align: center;
+  padding: 5px 0;
+}
+
 @media (min-width: $width-medium) {
+
+  .responsive-separator {
+    display: inline-block;
+    padding: 0 5px;
+  }
+
   pre {
     margin: 40px 0;
 
