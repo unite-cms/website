@@ -117,47 +117,50 @@ for (let i = 0; i < anchorLinks.length; i++) {
 
 window.onload = function(){
 
-  units.forEach((unit : FloatingUnit, index) => {
-    unit.setToInitialPosition();
-  });
+  delay(100, () => {
 
-  scroll.updateHandler();
-  delay(200, () => {
-    document.body.classList.add(('window-loaded'));
-  });
+    units.forEach((unit: FloatingUnit, index) => {
+      unit.setToInitialPosition();
+    });
 
-  // Some menu js improvements.
-  let docsMenuToggle = <HTMLInputElement>document.getElementById('docs-menu-toggle');
-  let siteMenuToggle = <HTMLInputElement>document.getElementById('site-menu-toggle');
+    scroll.updateHandler();
+    delay(200, () => {
+      document.body.classList.add(('window-loaded'));
+    });
 
-  siteMenuToggle.addEventListener('change', function(){
-    if(docsMenuToggle) {
-      if(this.checked) {
-        docsMenuToggle.classList.add("send-to-back");
-      } else {
-        docsMenuToggle.classList.remove("send-to-back");
-        if(document.activeElement instanceof HTMLInputElement) {
-          document.activeElement.blur();
-        }
-      }
-    }
-  });
-  if(docsMenuToggle) {
-    docsMenuToggle.addEventListener('change', function () {
-      if (!this.checked) {
-        if(document.activeElement instanceof HTMLInputElement) {
-          document.activeElement.blur();
+    // Some menu js improvements.
+    let docsMenuToggle = <HTMLInputElement>document.getElementById('docs-menu-toggle');
+    let siteMenuToggle = <HTMLInputElement>document.getElementById('site-menu-toggle');
+
+    siteMenuToggle.addEventListener('change', function () {
+      if (docsMenuToggle) {
+        if (this.checked) {
+          docsMenuToggle.classList.add("send-to-back");
+        } else {
+          docsMenuToggle.classList.remove("send-to-back");
+          if (document.activeElement instanceof HTMLInputElement) {
+            document.activeElement.blur();
+          }
         }
       }
     });
-
-    let docMenuLinks = document.querySelectorAll('.docs-navigation a');
-    for(let key=0; key < docMenuLinks.length; key++) {
-      docMenuLinks[key].addEventListener('click', function(){
-        if(docsMenuToggle.checked) {
-          docsMenuToggle.checked = false;
+    if (docsMenuToggle) {
+      docsMenuToggle.addEventListener('change', function () {
+        if (!this.checked) {
+          if (document.activeElement instanceof HTMLInputElement) {
+            document.activeElement.blur();
+          }
         }
       });
+
+      let docMenuLinks = document.querySelectorAll('.docs-navigation a');
+      for (let key = 0; key < docMenuLinks.length; key++) {
+        docMenuLinks[key].addEventListener('click', function () {
+          if (docsMenuToggle.checked) {
+            docsMenuToggle.checked = false;
+          }
+        });
+      }
     }
-  }
+  });
 };
